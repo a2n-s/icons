@@ -1,6 +1,6 @@
 # Maintainer: Antoine Stevan
 pkgname=a2n-s-icons
-pkgver=5.0.r589.8c0f76a
+pkgver=5.0.r4.f601c5e
 pkgrel=1
 epoch=
 pkgdesc="My personal collection of icons."
