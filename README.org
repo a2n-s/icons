@@ -12,7 +12,7 @@ cd ./pkgbuilds
 *** on another distribution of Linux
 /Makefile and instructions *coming soon*/
 ** Usage
-The icons are installed by default in ~/usr/share/icons/a2n-s/~.
+The icons are installed by default in ~/usr/share/icons/a2n-s-icons-git/~.
 
 These can be used directly as they are regular images.
 
