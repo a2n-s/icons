@@ -35,17 +35,13 @@ C = np.array([0.5, 0.5])
 
 plt.style.use("dark_background")
 
-curve = bezier_1(A, B, nb_points=1000)
-xs = [x for x, _ in curve]
-ys = [y for _, y in curve]
-plt.plot(xs, ys)
+x, y = bezier_1(A, B, nb_points=1000).transpose()
+plt.plot(x, y)
 plt.scatter(*A)
 plt.scatter(*B)
 
-curve = bezier_2(A, B, C, nb_points=1000)
-xs = [x for x, _ in curve]
-ys = [y for _, y in curve]
-plt.plot(xs, ys)
+x, y = bezier_2(A, B, C, nb_points=1000).transpose()
+plt.plot(x, y)
 plt.scatter(*A)
 plt.scatter(*B)
 plt.scatter(*C)
