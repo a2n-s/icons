@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from typing import List
+
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -17,26 +19,20 @@ def bezier_1(point_0: Point, point_1: Point, *, nb_points: int = 1000) -> np.nda
     return np.array(curve)
 
 
-def bezier_2(point_0: Point, point_1: Point, point_2: Point, *, nb_points: int = 1000) -> np.ndarray:
+def bezier(*points: List[Point], nb_points: int = 1000) -> np.ndarray:
+    if len(points) < 2:
+        raise ValueError("Not enough control points given...")
+
+    if len(points) == 2:
+        return bezier_1(*points, nb_points=nb_points)
+
     curve = []
     steps = np.linspace(0, 1, nb_points)
-    first = bezier_1(point_0, point_1, nb_points=1000)
-    second = bezier_1(point_1, point_2, nb_points=1000)
-    for t, (x_01, y_01), (x_12, y_12) in zip(steps, first, second):
-        x = x_01 * t + x_12 * (1 - t)
-        y = y_01 * t + y_12 * (1 - t)
-        curve.append((x, y))
-    return np.array(curve)
-
-
-def bezier_3(point_0: Point, point_1: Point, point_2: Point, point_3: Point, *, nb_points: int = 1000) -> np.ndarray:
-    curve = []
-    steps = np.linspace(0, 1, nb_points)
-    first = bezier_2(point_0, point_1, point_2, nb_points=1000)
-    second = bezier_2(point_1, point_2, point_3, nb_points=1000)
-    for t, (x_01, y_01), (x_12, y_12) in zip(steps, first, second):
-        x = x_01 * t + x_12 * (1 - t)
-        y = y_01 * t + y_12 * (1 - t)
+    first = bezier(*points[:-1], nb_points=nb_points)
+    second = bezier(*points[1:], nb_points=nb_points)
+    for t, (x_first, y_first), (x_second, y_second) in zip(steps, first, second):
+        x = x_first * t + x_second * (1 - t)
+        y = y_first * t + y_second * (1 - t)
         curve.append((x, y))
     return np.array(curve)
 
