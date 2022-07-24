@@ -41,16 +41,16 @@ def test(function, *, nb_control_points: int, color: str, nb_points: int):
     control_points = [np.random.uniform(0, 1, size=(2,)) for _ in range(nb_control_points)]
     x, y = function(*control_points, nb_points=nb_points).transpose()
     plt.plot(x, y, c=color)
-    for control in control_points:
-        plt.scatter(*control, c=color)
+    plt.plot(*np.array(control_points).transpose(), c=color, linestyle="-.", linewidth=.1, marker="+")
 
 
 def main(*, nb_points: int):
     plt.style.use("dark_background")
 
-    test(bezier_1, nb_control_points=2, color="green", nb_points=nb_points)
-    test(bezier_2, nb_control_points=3, color="red", nb_points=nb_points)
-    test(bezier_3, nb_control_points=4, color="blue", nb_points=nb_points)
+    test(bezier, nb_control_points=2, color="green", nb_points=nb_points)
+    test(bezier, nb_control_points=3, color="red", nb_points=nb_points)
+    test(bezier, nb_control_points=4, color="blue", nb_points=nb_points)
+    test(bezier, nb_control_points=5, color="yellow", nb_points=nb_points)
 
     plt.show()
 
