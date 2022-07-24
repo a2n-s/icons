@@ -29,25 +29,24 @@ def bezier_2(point_0: Point, point_1: Point, point_2: Point, *, nb_points: int =
     return np.array(curve)
 
 
-plt.style.use("dark_background")
-
-color = "green"
-A = np.random.uniform(0, 1, size=(2,))
-B = np.random.uniform(0, 1, size=(2,))
-x, y = bezier_1(A, B, nb_points=1000).transpose()
-plt.plot(x, y, c=color)
-plt.scatter(*A, c=color)
-plt.scatter(*B, c=color)
-
-color = "red"
-A = np.random.uniform(0, 1, size=(2,))
-B = np.random.uniform(0, 1, size=(2,))
-C = np.random.uniform(0, 1, size=(2,))
-x, y = bezier_2(A, B, C, nb_points=1000).transpose()
-plt.plot(x, y, c=color)
-plt.scatter(*A, c=color)
-plt.scatter(*B, c=color)
-plt.scatter(*C, c=color)
+def test(function, *, nb_control_points: int, color: str, nb_points: int):
+    control_points = [np.random.uniform(0, 1, size=(2,)) for _ in range(nb_control_points)]
+    x, y = function(*control_points, nb_points=nb_points).transpose()
+    plt.plot(x, y, c=color)
+    for control in control_points:
+        plt.scatter(*control, c=color)
 
 
-plt.show()
+def main(*, nb_points: int):
+    plt.style.use("dark_background")
+
+    test(bezier_1, nb_control_points=2, color="green", nb_points=nb_points)
+    test(bezier_2, nb_control_points=3, color="red", nb_points=nb_points)
+
+    plt.show()
+
+
+if __name__ == '__main__':
+    NB_POINTS = 1000
+
+    main(nb_points=NB_POINTS)
