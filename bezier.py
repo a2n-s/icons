@@ -41,17 +41,21 @@ def test(function, *, nb_control_points: int, color: str, nb_points: int):
     control_points = [np.random.uniform(0, 1, size=(2,)) for _ in range(nb_control_points)]
     x, y = function(*control_points, nb_points=nb_points).transpose()
     plt.plot(x, y, c=color)
-    plt.plot(*np.array(control_points).transpose(), c=color, linestyle="-.", linewidth=.1, marker="+")
+    plt.plot(*np.array(control_points).transpose(), c=color, linestyle="-.", linewidth=.2, marker="+")
 
 
 def main(*, nb_points: int):
     plt.style.use("dark_background")
 
-    test(bezier, nb_control_points=2, color="green", nb_points=nb_points)
-    test(bezier, nb_control_points=3, color="red", nb_points=nb_points)
-    test(bezier, nb_control_points=4, color="blue", nb_points=nb_points)
-    test(bezier, nb_control_points=5, color="yellow", nb_points=nb_points)
+    test(bezier, nb_control_points=2, color="cyan", nb_points=nb_points)
+    test(bezier, nb_control_points=3, color="green", nb_points=nb_points)
+    test(bezier, nb_control_points=4, color="yellow", nb_points=nb_points)
+    test(bezier, nb_control_points=5, color="red", nb_points=nb_points)
+    test(bezier, nb_control_points=6, color="magenta", nb_points=nb_points)
 
+    plt.xlim([0, 1])
+    plt.ylim([0, 1])
+    plt.grid(True)
     plt.show()
 
 
