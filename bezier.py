@@ -29,21 +29,25 @@ def bezier_2(point_0: Point, point_1: Point, point_2: Point, *, nb_points: int =
     return np.array(curve)
 
 
-A = np.array([0, 0])
-B = np.array([1, 0.5])
-C = np.array([0.5, 0.5])
-
 plt.style.use("dark_background")
 
+color = "green"
+A = np.random.uniform(0, 1, size=(2,))
+B = np.random.uniform(0, 1, size=(2,))
 x, y = bezier_1(A, B, nb_points=1000).transpose()
-plt.plot(x, y)
-plt.scatter(*A)
-plt.scatter(*B)
+plt.plot(x, y, c=color)
+plt.scatter(*A, c=color)
+plt.scatter(*B, c=color)
 
+color = "red"
+A = np.random.uniform(0, 1, size=(2,))
+B = np.random.uniform(0, 1, size=(2,))
+C = np.random.uniform(0, 1, size=(2,))
 x, y = bezier_2(A, B, C, nb_points=1000).transpose()
-plt.plot(x, y)
-plt.scatter(*A)
-plt.scatter(*B)
-plt.scatter(*C)
+plt.plot(x, y, c=color)
+plt.scatter(*A, c=color)
+plt.scatter(*B, c=color)
+plt.scatter(*C, c=color)
+
 
 plt.show()
