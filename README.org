@@ -3,16 +3,16 @@ A collection of icons I use for the notification of my laptop config.
 
 ** Installation
 *** on ArchLinux
-one can use [[https://github.com/a2n-s/pkgbuilds/blob/main/x86_64/a2n-s-icons-git/PKGBUILD][my custom PKGBUILD]] as follows:
+one can use [[https://github.com/amtoine/pkgbuilds/blob/main/x86_64/amtoine-icons-git/PKGBUILD][my custom PKGBUILD]] as follows:
 #+begin_src bash
-git clone https://github.com/a2n-s/pkgbuilds
+git clone https://github.com/amtoine/pkgbuilds
 cd ./pkgbuilds
-./install.sh x86_64/a2n-s-icons-git
+./install.sh x86_64/amtoine-icons-git
 #+end_src
 *** on another distribution of Linux
 /Makefile and instructions *coming soon*/
 ** Usage
-The icons are installed by default in ~/usr/share/icons/a2n-s-icons-git/~.
+The icons are installed by default in ~/usr/share/icons/amtoine-icons-git/~.
 
 These can be used directly as they are regular images.
 
