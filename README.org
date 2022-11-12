@@ -1,18 +1,18 @@
 * icons
-A collection of icons I use for the notification of my laptop config.
+A collection of icons for the notification of goats.
 
 ** Installation
 *** on ArchLinux
-one can use [[https://github.com/amtoine/pkgbuilds/blob/main/x86_64/amtoine-icons-git/PKGBUILD][my custom PKGBUILD]] as follows:
+one can use [[https://github.com/goatfiles/pkgbuilds/blob/main/x86_64/goat-icons-git/PKGBUILD][the PKGBUILD for goats]] as follows:
 #+begin_src bash
-git clone https://github.com/amtoine/pkgbuilds
+git clone https://github.com/goatfiles/pkgbuilds
 cd ./pkgbuilds
-./install.sh x86_64/amtoine-icons-git
+./install.sh x86_64/goat-icons-git
 #+end_src
 *** on another distribution of Linux
 /Makefile and instructions *coming soon*/
 ** Usage
-The icons are installed by default in ~/usr/share/icons/amtoine-icons-git/~.
+The icons are installed by default in ~/usr/share/icons/goat-icons-git/~.
 
 These can be used directly as they are regular images.
 
